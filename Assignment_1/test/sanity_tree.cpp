@@ -2,24 +2,28 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-TEST_CASE("Initialization") {
+TEST_CASE("Initialization")
+{
     splay_tree_implementation test_splay_tree;
     CHECK(test_splay_tree.get_num_nodes() == 0);
 }
 
-TEST_CASE("Insert") {
+TEST_CASE("Insert")
+{
     splay_tree_implementation test_splay_tree;
     test_splay_tree.insert(1);
     CHECK(test_splay_tree.get_num_nodes() == 1);
 }
 
-TEST_CASE("Find") {
+TEST_CASE("Find")
+{
     splay_tree_implementation test_splay_tree;
     test_splay_tree.insert(1);
-    CHECK(test_splay_tree.find(1) == true);    
+    CHECK(test_splay_tree.find(1) == true);
 }
 
-TEST_CASE("Remove") {
+TEST_CASE("Remove")
+{
     splay_tree_implementation test_splay_tree;
     test_splay_tree.insert(1);
     CHECK(test_splay_tree.get_num_nodes() == 1);
@@ -29,18 +33,19 @@ TEST_CASE("Remove") {
 
 void VECTOR_CHECK(vector<int> v1, vector<int> v2)
 {
-    if(v1.size() != v2.size())
+    if (v1.size() != v2.size())
     {
         CHECK(v1.size() == v2.size());
         return;
     }
-    for(int i = 0; i<v1.size(); i++)
+    for (int i = 0; i < v1.size(); i++)
     {
         CHECK(v1[i] == v2[i]);
     }
 }
 
-TEST_CASE("Root") {
+TEST_CASE("Root")
+{
     splay_tree_implementation test_splay_tree;
     test_splay_tree.insert(10);
     CHECK(test_splay_tree.get_num_nodes() == 1);
@@ -52,7 +57,8 @@ TEST_CASE("Root") {
     VECTOR_CHECK(expected, obtained);
 }
 
-TEST_CASE("Create") {
+TEST_CASE("Create")
+{
     splay_tree_implementation test_splay_tree;
     test_splay_tree.insert(100);
     CHECK(test_splay_tree.get_num_nodes() == 1);
@@ -119,10 +125,10 @@ TEST_CASE("Create") {
     test_splay_tree.insert(50);
     obtained = test_splay_tree.pre_order();
     CHECK(obtained[0] == 50);
-
 }
 
-TEST_CASE("Delete") {
+TEST_CASE("Delete")
+{
     splay_tree_implementation test_splay_tree;
     test_splay_tree.insert(100);
     CHECK(test_splay_tree.get_num_nodes() == 1);
@@ -153,5 +159,4 @@ TEST_CASE("Delete") {
     obtained = test_splay_tree.in_order();
     expected = {25};
     VECTOR_CHECK(expected, obtained);
-
 }
