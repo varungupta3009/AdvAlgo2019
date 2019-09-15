@@ -107,7 +107,6 @@ node *splay_tree_implementation::splay(node *Node, int data)
 
     if (Node->data < data)
     {
-        // cout << "SPLAY: Node " << Node->data << " < " << data << '\n';
         if (!Node->right)
             return Node;
 
@@ -125,14 +124,11 @@ node *splay_tree_implementation::splay(node *Node, int data)
             Node = left_rotate(Node);
         }
 
-        // cout << "SPLAY: Node " << Node->left->data << " probably = " << data << '\n';
-
         return (Node->right) ? left_rotate(Node) : Node;
     }
 
     else
     {
-        // cout << "SPLAY: Node " << Node->data << " > " << data << '\n';
         if (!Node->left)
             return Node;
 
@@ -148,8 +144,6 @@ node *splay_tree_implementation::splay(node *Node, int data)
             if (Node->left->right)
                 Node->left = left_rotate(Node->left);
         }
-
-        // cout << "SPLAY: Node " << Node->left->data << " probably = " << data << '\n';
 
         return (Node->left) ? right_rotate(Node) : Node;
     }
@@ -212,7 +206,7 @@ void splay_tree_implementation::remove(int data)
     if (data != root->data)
         return;
 
-    struct node *Node;
+    node *Node;
 
     if (root->left)
     {
