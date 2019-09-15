@@ -1,5 +1,6 @@
 #include "../src/dynamic_array_implementation.cpp"
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#define DOCTEST_CONFIG_COLORS_WINDOWS
 #include "doctest.h"
 
 TEST_CASE("Initialization")
